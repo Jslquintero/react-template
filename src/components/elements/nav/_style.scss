@@ -1,0 +1,11 @@
+.navbar {
+    display: grid;
+    grid-gap: 1rem;
+    background-color: rgb(216, 29, 29);
+    grid-template-columns: 30% 40% 30%;
+    .items{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
