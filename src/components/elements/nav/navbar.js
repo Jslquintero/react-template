@@ -1,16 +1,16 @@
 /**
- * @author Jose Salvador lopez
+ * @author @Jslquintero
  * @name Bar tipo function
  * @date 04 Enero del 2023
  * @descripcion Componente global para el estilo y manejo de la barra de navegacion
- * @editorJose Salvador lopez
- * @dateUpdate 
- * @descripcionUpdate 
- * @version 1.0.0
+ * @editorJose @Jslquintero
+ * @dateUpdate 06 Enero del 2023
+ * @descripcionUpdate Refactor del componente Item para su reutilizacion en el componente Navbar
+ * @version 1.0.1
  * @params {links y distribucion}
  */
 
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import Item from './item';
 import Bar from './bar';
 import './_style.scss';
@@ -18,18 +18,26 @@ import './_style.scss';
 
 export default function Navbar(props) {
     const [header, setHeader] = useState('links');
-    return(
-       
+    return (
+
         <Bar>
             <div className="navbar-logo">
-                
-                <Item route={"/"} styleClass={'logo-bar'}>
-                    <span className='logo'>
-                        <img width={42} height={46} 
-                            alt="logo"
-                            className="logo-bar"/>
-                    </span>
-                </Item>
+
+                <Item items={
+                    [{
+                            route: "/",
+                            styleClass: 'logo-bar',
+                            ref: '',
+                            key: 'logo',
+                            children: <span className='logo'>
+                                <img width={42}
+                                    height={46}
+                                    alt="logo"
+                                    className="logo-bar"/>
+                            </span>
+                        }]
+                }/>
+
             </div>
             <div className="hb-bar"
                 onClick={
@@ -42,13 +50,28 @@ export default function Navbar(props) {
                 </svg>
             </div>
             <div className={header}>
+                <Item items={
+                    [
+                        {
+                            route: "/",
+                            styleClass: 'links-text',
+                            ref: 'Link 1'
+                        }, {
+                            route: "/",
+                            styleClass: 'links-text',
+                            ref: 'Link 2'
+                        }, {
+                            route: "/",
+                            styleClass: 'links-text',
+                            ref: 'Link 3'
+                        }, {
+                            route: "/",
+                            styleClass: 'links-text',
+                            ref: 'Link 4'
+                        }
 
-                <Item route={"/"}
-                    styleClass={'links-text'}>Item1</Item>
-                <Item route={"/"}
-                    styleClass={'links-text'}>Item2</Item>
-                <Item route={"/"}
-                    styleClass={'links-text'}>Item3</Item>
+                    ]
+                }/>
             </div>
         </Bar>
 
